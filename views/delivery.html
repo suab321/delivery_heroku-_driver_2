@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+    <body>
+       <h1> Hey I m driver</h1>
+    </body>
+    <script>
+        var socket1=io.connect('https://fast-reef-53121.herokuapp.com');
+        var socket2=io.connect('https://floating-brushlands-52313.herokuapp.com');
+
+        socket2.on("new_delivery_request",(req)=>{
+            console.log(req);
+            req.Driver_id="5c8ec2ac7486850024583ef1";
+            req.Name="abhinav";
+            req.Email="singhabhinav0796@gmail.com";
+            req.Phone="9051571833";
+            console.log(req);
+            socket1.emit("request",(req));
+        })
+    </script>
+</html>
